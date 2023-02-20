@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { MongoClient } from "mongodb";
 import { LoginApi } from "./loginApi.js";
+import { ActivitiesApi } from "./activitiesApi.js";
 
 dotenv.config();
 
@@ -19,7 +20,8 @@ mongoClient.connect().then(async () => {
 });
 
 app.use("/api/login", LoginApi(mongoClient.db("webapp-exam")));
-/*app.use("/api/user", UserApi(mongoClient.db("webapp-exam")));*/
+
+app.use("/api/activities", ActivitiesApi(mongoClient.db("webapp-exam")));
 
 app.use(express.static("../client/dist"));
 app.use((req, res, next) => {

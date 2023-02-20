@@ -13,14 +13,14 @@ export function NavBar({ user, setUser }) {
 
   return (
     <nav className={"navBar"}>
-      {user.type === "admin" && <Link to={"/activities"}>Activities</Link>}
+      {user.username && <Link to={"/activities"}>Activities</Link>}
       {user.username && <Link to={"/profile"}>{user.fullName}</Link>}
 
-      {!user.username && window.location.pathname !== "/login" && (
-        <Link to={"/login"}>Log in</Link>
-      )}
       {user.username === "admin" && (
         <Link to={"/group-manager"}>Manage your group</Link>
+      )}
+      {!user.username && window.location.pathname !== "/login" && (
+        <Link to={"/login"}>Log in</Link>
       )}
 
       {user.username && (

@@ -14,8 +14,8 @@ export function LoginApi(mongoDatabase) {
 
   router.get("/", (req, res) => {
     if (req.user) {
-      const { username, fullName, userType } = req.user;
-      res.json({ username, fullName, userType });
+      const { id, username, fullName, userType, group } = req.user;
+      res.json({ id, username, fullName, userType, group });
     } else {
       res.json({});
     }

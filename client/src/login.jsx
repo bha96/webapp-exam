@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 export function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
+
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -18,8 +18,9 @@ export function Login({ setUser }) {
     });
 
     if (res.ok) {
-      setUser(await res.json());
-      console.log(`Hello ${username}`);
+      const user = await res.json();
+      setUser(user);
+      console.log(user);
       navigate("/activities");
     }
   }

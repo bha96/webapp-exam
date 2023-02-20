@@ -9,6 +9,7 @@ import { Activities } from "./activities";
 
 function Home({ user }) {
   const navigate = useNavigate();
+
   useEffect(() => {
     return () => {
       if (!user.username) {
@@ -31,6 +32,8 @@ export function App() {
 
       if (res.ok) {
         setUser(await res.json());
+      } else {
+        throw await res.json();
       }
       setLoading(false);
     })();
@@ -45,9 +48,12 @@ export function App() {
       <NavBar user={user} setUser={setUser} />
       <Routes>
         <Route path={"/"} element={<Home user={user} />}></Route>
-        {!user.username && (
-          <Route path={"/login"} element={<Login setUser={setUser} />}></Route>
-        )}
+
+        <Route
+          path={"/login"}
+          element={<Login user={user} setUser={setUser} />}
+        ></Route>
+
         {user.username && (
           <Route path={"/activities"} element={<Activities />}></Route>
         )}

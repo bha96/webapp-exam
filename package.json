@@ -1,0 +1,34 @@
+{
+  "name": "webapp-exam",
+  "version": "1.0.0",
+  "description": "Exam in PG6301",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently npm:dev:client npm:dev:server",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "start": "cd server && npm start",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "cd client && npm install && npm run build",
+    "build:server": "cd server && npm install",
+    "format:check": "prettier --check **/*.{js,jsx,ts,tsx}",
+    "format": "prettier --write **/*.{js,jsx,ts,tsx}",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bha96/webapp-exam.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bha96/webapp-exam"
+  },
+  "homepage": "https://github.com/bha96/webapp-exam#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.3"
+  }
+}

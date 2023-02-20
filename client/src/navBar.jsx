@@ -19,9 +19,6 @@ export function NavBar({ user, setUser }) {
       {user.username === "admin" && (
         <Link to={"/group-manager"}>Manage your group</Link>
       )}
-      {!user.username && window.location.pathname !== "/login" && (
-        <Link to={"/login"}>Log in</Link>
-      )}
 
       {user.username && (
         <button onClick={logOut} type={"button"}>

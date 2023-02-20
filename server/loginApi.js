@@ -16,6 +16,7 @@ export function LoginApi(mongoDatabase) {
     if (req.user) {
       const { id, username, fullName, userType, group } = req.user;
       res.json({ id, username, fullName, userType, group });
+      console.log(req.user);
     } else {
       res.json({});
     }

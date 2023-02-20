@@ -1,4 +1,6 @@
 # webapp-exam
 
 ### Todo:
- * [ ] change mongodb from azure practice -> webapp exam
+ * [x] change mongodb from azure practice -> webapp exam
+ * [ ] manager can see all tasks and users
+ * [ ] adding 

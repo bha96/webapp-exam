@@ -19,7 +19,6 @@ export function ActivitiesApi(mongoDatabase) {
         .collection("hours")
         .find({ user: user._id })
         .toArray();
-      console.log(hours);
       hours.forEach((i) => {
         activitiesWithHours.push({
           name: i.activity,

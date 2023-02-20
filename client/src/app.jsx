@@ -6,6 +6,7 @@ import { NotFound } from "./notFound";
 import * as React from "react";
 import { useEffect, useState } from "react";
 import { Activities } from "./activities";
+import { GroupManager } from "./groupManager";
 
 function Home({ user }) {
   const navigate = useNavigate();
@@ -15,9 +16,12 @@ function Home({ user }) {
         navigate("/login");
         console.log("going to login");
       }
-      if (user.username) {
+      if (user.userType === "user") {
         navigate("/activities");
         console.log("going to activities");
+      } else if (user.userType === "manager") {
+        navigate("/group-manager");
+        console.log("going to manager");
       }
     })();
   }, []);
@@ -33,7 +37,6 @@ export function App() {
 
       if (res.ok) {
         setUser(await res.json());
-        console.log(user);
       } else {
         throw await res.json();
       }
@@ -55,8 +58,11 @@ export function App() {
           element={<Login user={user} setUser={setUser} />}
         />
 
-        {user.username && (
+        {!(user.userType === "manager") && (
           <Route path={"/activities"} element={<Activities />} />
+        )}
+        {user.userType === "manager" && (
+          <Route path={"/group-manager"} element={<GroupManager />} />
         )}
 
         <Route path={"/*"} element={<NotFound />} />

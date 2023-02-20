@@ -1,36 +1,28 @@
 import { Router } from "express";
 
-export function LoginApi(mongoDatabase) {
+export function LoginApi() {
   const router = new Router();
-  let users = [];
-
-  router.use(async (req, res, next) => {
-    const { username } = req.signedCookies;
-    console.log(req.signedCookies);
-    users = await mongoDatabase.collection("users").find().toArray();
-    req.user = users.find((u) => u.username === username);
-    next();
-  });
 
   router.get("/", (req, res) => {
     if (req.user) {
       const { _id, username, fullName, userType, group } = req.user;
       res.json({ _id, username, fullName, userType, group });
-      console.log(req.user);
     } else {
       res.json({});
     }
   });
 
   router.post("/", (req, res) => {
-    const { username, password } = req.body;
-    console.log(username, password);
-    const user = users.find(
-      (u) => u.username === username && u.password === password
-    );
-    if (user) {
-      res.cookie("username", user.username, { signed: true });
-      res.json({ username: user.username, fullName: user.fullName });
+    const { username: reqUsername, password } = req.body;
+    console.log("post in login");
+
+    const { _id, username, fullName, userType, group } =
+      req.users.find(
+        (u) => u.username === reqUsername && u.password === password
+      ) || {};
+    if (_id) {
+      res.cookie("username", username, { signed: true });
+      res.json({ _id, username, fullName, userType, group });
     } else {
       res.sendStatus(401);
     }

@@ -20,8 +20,12 @@ export function Login({ setUser }) {
     if (res.ok) {
       const user = await res.json();
       setUser(user);
-      console.log(user);
-      navigate("/activities");
+      console.log(user.userType);
+      if (user.userType === "manager") {
+        navigate("/group-manager");
+      } else {
+        navigate("/");
+      }
     }
   }
 

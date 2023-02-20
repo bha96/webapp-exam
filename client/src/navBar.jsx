@@ -8,18 +8,17 @@ export function NavBar({ user, setUser }) {
       method: "DELETE",
     }).then((r) => console.log(r));
     setUser({});
-    navigate("/");
+    navigate("/login");
   }
 
   return (
     <nav className={"navBar"}>
-      {user.username && <Link to={"/activities"}>Activities</Link>}
-      {user.username && <Link to={"/profile"}>{user.fullName}</Link>}
-
-      {user.username === "admin" && (
+      {user.userType === "manager" && (
         <Link to={"/group-manager"}>Manage your group</Link>
       )}
 
+      {user.userType === "user" && <Link to={"/activities"}>Activities</Link>}
+      {user.username && <Link to={"/profile"}>{user.fullName}</Link>}
       {user.username && (
         <button onClick={logOut} type={"button"}>
           Log out

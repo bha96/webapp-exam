@@ -62,7 +62,10 @@ export function App() {
           <Route path={"/activities"} element={<Activities />} />
         )}
         {user.userType === "manager" && (
-          <Route path={"/group-manager"} element={<GroupManager />} />
+          <Route
+            path={"/group-manager/*"}
+            element={<GroupManager user={user} />}
+          />
         )}
 
         <Route path={"/*"} element={<NotFound />} />

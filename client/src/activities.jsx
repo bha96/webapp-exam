@@ -1,5 +1,14 @@
 import { useEffect, useState } from "react";
 
+function ActivityCard({ activity }) {
+  return (
+    <div>
+      <div>{activity.name}</div>
+      <div>{activity.hours}</div>
+    </div>
+  );
+}
+
 export function Activities() {
   const [activities, setActivities] = useState([]);
 
@@ -18,7 +27,7 @@ export function Activities() {
   return (
     <div>
       {activities.map((a) => (
-        <h1 key={a.name}>{a.name}</h1>
+        <ActivityCard key={a.name} activity={a} />
       ))}
     </div>
   );

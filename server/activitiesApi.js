@@ -13,12 +13,20 @@ export function ActivitiesApi(mongoDatabase) {
 
   router.get("/", async (req, res) => {
     const user = req.user;
+    let activitiesWithHours = [];
     if (user) {
-      const activities = await mongoDatabase
-        .collection("activities")
-        .find({ group: user.group })
+      const hours = await mongoDatabase
+        .collection("hours")
+        .find({ user: user._id })
         .toArray();
-      res.json(activities);
+      console.log(hours);
+      hours.forEach((i) => {
+        activitiesWithHours.push({
+          name: i.activity,
+          hours: i.hours,
+        });
+      });
+      res.json(activitiesWithHours);
     }
   });
 

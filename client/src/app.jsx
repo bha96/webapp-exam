@@ -33,6 +33,7 @@ export function App() {
 
       if (res.ok) {
         setUser(await res.json());
+        console.log(user);
       } else {
         throw await res.json();
       }

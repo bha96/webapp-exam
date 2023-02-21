@@ -120,7 +120,7 @@ function UserEditCard({ user, setChanged }) {
   );
 }
 
-export function EditUsers() {
+export function UserEditor() {
   const [users, setUsers] = useState([]);
   const [changed, setChanged] = useState(false);
 

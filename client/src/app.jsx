@@ -6,7 +6,7 @@ import { NotFound } from "./notFound";
 import * as React from "react";
 import { useEffect, useState } from "react";
 import { Activities } from "./activities";
-import { GroupManager } from "./groupManager";
+import { GroupManager } from "./manager/groupManager";
 
 function Home({ user }) {
   const navigate = useNavigate();

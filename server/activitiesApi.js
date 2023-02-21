@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { ObjectId } from "mongodb";
 
 export function ActivitiesApi(mongoDatabase) {
   const router = new Router();
@@ -21,6 +22,12 @@ export function ActivitiesApi(mongoDatabase) {
       } else {
         res.json(activitiesAvailable);
       }
+    } else if (req.signedCookies.userType === "manager") {
+      const allActivities = await mongoDatabase
+        .collection("activities")
+        .find()
+        .toArray();
+      res.json(allActivities);
     } else {
       res.sendStatus(401);
     }
@@ -54,6 +61,21 @@ export function ActivitiesApi(mongoDatabase) {
       } else {
         res.sendStatus(303);
       }
+    } else {
+      res.sendStatus(401);
+    }
+  });
+  router.put("/group/:_id", (req, res) => {
+    if (req.signedCookies.userType === "manager") {
+      const activityId = req.params._id;
+      const { group } = req.body;
+      console.log(group);
+      mongoDatabase
+        .collection("activities")
+        .updateOne(
+          { _id: new ObjectId(activityId) },
+          { $set: { group: group } }
+        );
     } else {
       res.sendStatus(401);
     }

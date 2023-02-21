@@ -22,7 +22,6 @@ mongoClient.connect().then(async () => {
 
 app.use(async (req, res, next) => {
   const { username } = req.signedCookies;
-  console.log(req.signedCookies);
   req.users = await mongoClient
     .db("webapp-exam")
     .collection("users")

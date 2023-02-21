@@ -59,7 +59,7 @@ export function App() {
         />
 
         {!(user.userType === "manager") && (
-          <Route path={"/activities"} element={<Activities />} />
+          <Route path={"/activities"} element={<Activities user={user} />} />
         )}
         {user.userType === "manager" && (
           <Route

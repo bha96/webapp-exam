@@ -26,7 +26,7 @@ export function ActivitiesApi(mongoDatabase) {
     }
   });
 
-  router.post("/log", async (req, res) => {
+  router.put("/log", async (req, res) => {
     if (
       req.signedCookies.userType === "user" ||
       req.signedCookies.userType === "manager"

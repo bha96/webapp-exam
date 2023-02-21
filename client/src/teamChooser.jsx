@@ -56,7 +56,11 @@ export function TeamChooser({ user }) {
     /*
      * 'Reset' the group on people you want to remove from your team
      */
-    usersNotInYourGroup.forEach((u) => {
+    const usersThatNeedsChanging = usersNotInYourGroup.filter(
+      (u) => u.group === user.group
+    );
+    console.log(usersThatNeedsChanging);
+    usersThatNeedsChanging.forEach((u) => {
       u.group = -1;
     });
     const allUsers = usersNotInYourGroup.concat(usersInYourGroup);
@@ -69,7 +73,7 @@ export function TeamChooser({ user }) {
       body: JSON.stringify(allUsers),
     });
     if (res.status >= 400) {
-      throw new Error("Server responds with error!");
+      console.log("Something wrong happened: " + res.statusMessage);
     }
   }
 

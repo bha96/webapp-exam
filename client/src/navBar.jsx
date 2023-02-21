@@ -18,7 +18,7 @@ export function NavBar({ user, setUser }) {
       )}
 
       {user.userType === "user" && <Link to={"/activities"}>Activities</Link>}
-      {user.username && <Link to={"/profile"}>{user.fullName}</Link>}
+      {user.username && <div>Greetings {user.fullName}!</div>}
       {user.username && (
         <button onClick={logOut} type={"button"}>
           Log out

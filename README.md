@@ -5,7 +5,7 @@
  * [x] Manager can create user
  * [x] Manager can see all users 
  * [x] Manager can remove or add to their team
- * [ ] User can see and add hours to activities
+ * [x] User can see and add hours to activities
  * [ ] manager can see all tasks
  * [ ] Manager can add or edit tasks
  * [ ] adding 

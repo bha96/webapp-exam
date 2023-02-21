@@ -5,7 +5,7 @@ function ActivityCard({ activity, setAlert, setChanged, changed }) {
   async function handleSubmit(e) {
     e.preventDefault();
     const res = await fetch("/api/activities/log", {
-      method: "POST",
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },

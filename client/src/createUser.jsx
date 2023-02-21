@@ -26,6 +26,9 @@ export function CreateUser() {
       setColor("red");
       setAlert("User already exists");
     }
+    setUsername("");
+    setPassword("");
+    setFullName("");
   }
 
   return (

@@ -22,6 +22,7 @@ export function LoginApi() {
       ) || {};
     if (_id) {
       res.cookie("username", username, { signed: true });
+      res.cookie("userType", userType, { signed: true });
       res.json({ _id, username, fullName, userType, group });
     } else {
       res.sendStatus(401);
@@ -30,6 +31,7 @@ export function LoginApi() {
 
   router.delete("/", (req, res) => {
     res.clearCookie("username");
+    res.clearCookie("userType");
     res.sendStatus(200);
   });
 

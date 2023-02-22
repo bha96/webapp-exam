@@ -1,6 +1,7 @@
+import * as React from "react";
 import { useEffect, useState } from "react";
 
-function ActivityCard({ activity, setAlert, setChanged, changed }) {
+export function ActivityCard({ activity, setAlert, setChanged, changed }) {
   const [hours, setHours] = useState(0);
   async function handleSubmit(e) {
     e.preventDefault();

@@ -1,7 +1,8 @@
+import * as React from "react";
 import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 
-function ActivityEditCard({ activity }) {
+export function ActivityEditCard({ activity }) {
   const [name, setName] = useState("");
   let [group, setGroup] = useState([]);
   const [alert, setAlert] = useState("");

@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components show not found page 1`] = `
+<div>
+  <h1>
+    404:
+  </h1>
+  <h3>
+    This is not the page you are looking for
+  </h3>
+</div>
+`;
+
+exports[`renders components shows activities 1`] = `
+<div>
+  <hr />
+  <div />
+</div>
+`;
+
+exports[`renders components shows front page 1`] = `"Loading..."`;
+
+exports[`renders components shows login page 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Login
+    </h2>
+    <div>
+      <label>
+        Username:
+        <input
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <div>
+      <label>
+        Password:
+        <input
+          onChange={[Function]}
+          type="password"
+          value=""
+        />
+      </label>
+    </div>
+    <button>
+      Log in
+    </button>
+  </form>
+  <p
+    style={
+      {
+        "color": "red",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`renders components shows navigation bar 1`] = `null`;
+
+exports[`renders components shows user GroupManager 1`] = `
+<div>
+  <h1>
+    "Company logo"
+  </h1>
+  <a
+    href="/team-chooser"
+    onClick={[Function]}
+  >
+    Team Chooser
+  </a>
+    
+  <a
+    href="/users/new"
+    onClick={[Function]}
+  >
+    Create user
+  </a>
+    
+  <a
+    href="/users/edit"
+    onClick={[Function]}
+  >
+    Edit users
+  </a>
+    
+  <a
+    href="/activities/edit"
+    onClick={[Function]}
+  >
+    Edit activities
+  </a>
+</div>
+`;
+
+exports[`renders components shows user activitiy edit card 1`] = `null`;
+
+exports[`renders components shows user activity editor 1`] = `
+<div>
+  <h1>
+    Activity editor
+  </h1>
+</div>
+`;
+
+exports[`renders components shows user card 1`] = `null`;
+
+exports[`renders components shows user create user page 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <h1>
+      Create a new user
+    </h1>
+    <p>
+      Everything is case sensitive
+    </p>
+    <div>
+      <label>
+        Username:
+        <input
+          onChange={[Function]}
+          placeholder="Squirrel Man"
+          required={true}
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <div>
+      <label>
+        Full name:
+        <input
+          onChange={[Function]}
+          placeholder="T.R. Squirrlington"
+          required={true}
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <div>
+      <label>
+        Password:
+        <input
+          onChange={[Function]}
+          placeholder="******"
+          required={true}
+          type="password"
+          value=""
+        />
+      </label>
+    </div>
+    <div>
+      User will automatically be assigned to your group
+    </div>
+    <button>
+      Create user
+    </button>
+  </form>
+  <div
+    style={
+      {
+        "color": "black",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`renders components shows user editor 1`] = `
+<div>
+  <h1>
+    Edit users
+  </h1>
+</div>
+`;
+
+exports[`renders components shows user editor card 1`] = `null`;
+
+exports[`renders components shows user team chooser 1`] = `
+<div>
+  <h2>
+    People on your team
+  </h2>
+  <hr />
+  <h2>
+    People not on your team
+  </h2>
+  <hr />
+  <button
+    onClick={[Function]}
+  >
+    Save
+  </button>
+</div>
+`;

@@ -1,7 +1,8 @@
+import * as React from "react";
 import { useEffect, useState } from "react";
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
 
-function UserEditCard({ user, setChanged }) {
+export function UserEditCard({ user, setChanged }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");

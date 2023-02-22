@@ -1,6 +1,7 @@
+import * as React from "react";
 import { useEffect, useState } from "react";
 
-function UserCard({
+export function UserCard({
   btnSign,
   user,
   setUsersInYourGroup,

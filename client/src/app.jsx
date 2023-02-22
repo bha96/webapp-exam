@@ -14,14 +14,11 @@ function Home({ user }) {
     (() => {
       if (!user.username) {
         navigate("/login");
-        console.log("going to login");
       }
       if (user.userType === "user") {
         navigate("/activities");
-        console.log("going to activities");
       } else if (user.userType === "manager") {
         navigate("/group-manager");
-        console.log("going to manager");
       }
     })();
   }, []);

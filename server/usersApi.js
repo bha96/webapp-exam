@@ -5,14 +5,12 @@ export function UsersApi(mongoDatabase) {
   const router = Router();
 
   router.get("/", async (req, res) => {
-    console.log(req.signedCookies.userType);
     if (req.signedCookies.userType === "manager") {
       const users = await mongoDatabase
         .collection("users")
         .find({ userType: "user" })
         .toArray();
       res.json(users);
-      console.log(users);
     } else {
       res.sendStatus(401);
     }
@@ -26,7 +24,6 @@ export function UsersApi(mongoDatabase) {
           .collection("users")
           .updateOne({ username: u.username }, { $set: { group: u.group } })
       );
-      console.log(updatedUsers);
       res.sendStatus(204);
     } else {
       res.sendStatus(401);
@@ -39,7 +36,6 @@ export function UsersApi(mongoDatabase) {
       const userExists = await mongoDatabase
         .collection("users")
         .findOne({ username: username });
-      console.log("user " + userExists);
       if (userExists && username !== "") {
         res.sendStatus(409);
       } else {
@@ -72,7 +68,6 @@ export function UsersApi(mongoDatabase) {
     if (req.signedCookies.userType === "manager") {
       const userId = req.params.id;
       const { username, fullName, password } = req.body;
-      console.log(username, fullName, password);
       if (username) {
         const userExists = await mongoDatabase
           .collection("users")

@@ -14,7 +14,6 @@ export function LoginApi() {
 
   router.post("/", (req, res) => {
     const { username: reqUsername, password } = req.body;
-    console.log("post in login");
 
     const { _id, username, fullName, userType, group } =
       req.users.find(

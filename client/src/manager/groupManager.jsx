@@ -3,10 +3,12 @@ import { TeamChooser } from "./teamChooser";
 import { CreateUser } from "./createUser";
 import { UserEditor } from "./userEditor";
 import { ActivityEditor } from "./activityEditor";
+import * as React from "react";
 
 export function GroupManager({ user }) {
   return (
     <div>
+      <h1>"Company logo"</h1>
       <Link to={"./team-chooser"}>Team Chooser</Link>
       &nbsp;&nbsp;
       <Link to={"./users/new"}>Create user</Link>

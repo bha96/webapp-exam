@@ -4,3 +4,4 @@ dist/
 /client/.parcel-cache
 *.env.json
 *.http
+/client/coverage/

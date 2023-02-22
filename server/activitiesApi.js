@@ -69,7 +69,6 @@ export function ActivitiesApi(mongoDatabase) {
     if (req.signedCookies.userType === "manager") {
       const activityId = req.params._id;
       const { group } = req.body;
-      console.log(group);
       mongoDatabase
         .collection("activities")
         .updateOne(
